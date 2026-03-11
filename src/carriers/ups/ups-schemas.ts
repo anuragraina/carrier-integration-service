@@ -1,11 +1,13 @@
 import { z } from 'zod';
 
+// Runtime validation for OAuth responses coming back from UPS.
 export const upsTokenResponseSchema = z.object({
 	token_type: z.string().min(1),
 	access_token: z.string().min(1),
 	expires_in: z.coerce.number().positive(),
 });
 
+// Runtime validation for the subset of the rating response this module depends on.
 export const upsRateResponseSchema = z.object({
 	RateResponse: z.object({
 		Response: z.object({
@@ -44,6 +46,7 @@ export const upsRateResponseSchema = z.object({
 	}),
 });
 
+// Shared schema for parsing documented UPS error envelopes.
 export const upsErrorSchema = z.object({
 	response: z
 		.object({

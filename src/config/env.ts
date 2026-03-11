@@ -1,6 +1,7 @@
 import { config as loadEnv } from 'dotenv';
 import { z } from 'zod';
 
+// Load environment variables before validating the config shape.
 loadEnv();
 
 const envSchema = z.object({
@@ -15,6 +16,7 @@ const envSchema = z.object({
 
 export type AppConfig = z.infer<typeof envSchema>;
 
+// Centralized config validation keeps secrets and environment-specific values out of code.
 export function loadConfig(env: NodeJS.ProcessEnv = process.env): AppConfig {
 	return envSchema.parse(env);
 }

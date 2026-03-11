@@ -3,6 +3,7 @@ import type { RateQuote } from '../../domain/rate-quote.js';
 import type { RateRequest } from '../../domain/rate-request.js';
 import type { UpsRateRequestPayload, UpsRateResponsePayload } from './ups-types.js';
 
+// Minimal service name lookup so callers do not need to interpret UPS service codes.
 const SERVICE_NAMES: Record<string, string> = {
 	'01': 'UPS Next Day Air',
 	'02': 'UPS 2nd Day Air',
@@ -24,6 +25,7 @@ function mapAddress(address: Address) {
 	};
 }
 
+// Converts our internal shipment model into the UPS-specific payload shape.
 export function buildUpsRateRequestPayload(request: RateRequest): UpsRateRequestPayload {
 	const shipment: UpsRateRequestPayload['RateRequest']['Shipment'] = {
 		Shipper: mapAddress(request.shipper),
@@ -66,6 +68,7 @@ export function buildUpsRateRequestPayload(request: RateRequest): UpsRateRequest
 	};
 }
 
+// Converts UPS-rated shipments back into normalized internal quotes.
 export function normalizeUpsRateResponse(response: UpsRateResponsePayload): RateQuote[] {
 	return response.RateResponse.RatedShipment.map(ratedShipment => ({
 		carrier: 'ups',

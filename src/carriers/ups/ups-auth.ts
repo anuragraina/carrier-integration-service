@@ -17,6 +17,7 @@ export interface UpsAuthConfig {
 	tokenExpirySkewMs: number;
 }
 
+// Keeps OAuth concerns separate from the rating flow and caches tokens in-memory.
 export class UpsAuthService {
 	private cachedToken?: CachedToken;
 
@@ -68,6 +69,7 @@ export class UpsAuthService {
 
 		this.cachedToken = {
 			accessToken: parsedToken.data.access_token,
+			// Refresh a little early to avoid edge cases around token expiry.
 			expiresAtMs:
 				this.clock.now() +
 				parsedToken.data.expires_in * 1000 -

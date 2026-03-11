@@ -1,3 +1,4 @@
+// Small transport abstraction that keeps HTTP concerns easy to stub in tests.
 export interface HttpRequest {
 	method: 'GET' | 'POST';
 	url: string;

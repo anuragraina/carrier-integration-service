@@ -1,6 +1,7 @@
 import { NetworkError, TimeoutError } from '../../domain/errors.js';
 import type { HttpClient, HttpRequest, HttpResponse } from './http-client.js';
 
+// Thin fetch wrapper so carrier code depends on an interface, not a concrete transport.
 export class FetchHttpClient implements HttpClient {
 	public async send(request: HttpRequest): Promise<HttpResponse> {
 		const controller = new AbortController();

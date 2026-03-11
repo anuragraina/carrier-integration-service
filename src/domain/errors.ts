@@ -7,6 +7,7 @@ export type CarrierErrorCode =
 	| 'MALFORMED_RESPONSE'
 	| 'NETWORK_ERROR';
 
+// Base error type so callers can handle carrier failures consistently.
 export class CarrierError extends Error {
 	public readonly code: CarrierErrorCode;
 	public readonly statusCode: number | undefined;

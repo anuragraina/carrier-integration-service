@@ -3,6 +3,7 @@ import { addressSchema } from './address.js';
 import { parcelSchema } from './parcel.js';
 import { carrierServiceLevelSchema } from './service-level.js';
 
+// Carrier-agnostic input for rate shopping.
 export const rateRequestSchema = z.object({
 	shipper: addressSchema,
 	recipient: addressSchema,

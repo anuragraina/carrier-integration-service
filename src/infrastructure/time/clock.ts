@@ -1,3 +1,4 @@
+// Injecting time makes token expiry logic deterministic in tests.
 export interface Clock {
 	now(): number;
 }

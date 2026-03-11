@@ -1,5 +1,6 @@
 import { z } from 'zod';
 
+// Normalized postal address used by the rest of the domain layer.
 export const addressSchema = z.object({
 	name: z.string().min(1).max(100),
 	addressLine1: z.string().min(1).max(100),

@@ -1,3 +1,4 @@
+// Carrier-specific transport contracts are kept separate from internal domain models.
 export interface UpsTokenResponse {
 	token_type: string;
 	access_token: string;

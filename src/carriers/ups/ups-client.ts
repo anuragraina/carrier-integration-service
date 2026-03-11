@@ -17,6 +17,7 @@ import { buildUpsRateRequestPayload, normalizeUpsRateResponse } from './ups-mapp
 import { UpsAuthService } from './ups-auth.js';
 import { upsErrorSchema, upsRateResponseSchema } from './ups-schemas.js';
 
+// Coordinates request validation, authentication, transport, and UPS response mapping.
 export class UpsCarrierClient implements CarrierClient {
 	private readonly authService: UpsAuthService;
 
@@ -58,6 +59,7 @@ export class UpsCarrierClient implements CarrierClient {
 			headers: {
 				Authorization: `Bearer ${accessToken}`,
 				'Content-Type': 'application/json',
+				// UPS expects request-level identifiers that are useful for tracing.
 				transId: '123456789', // In production, this should be a unique ID for each request
 				transactionSrc: 'cybership',
 			},
