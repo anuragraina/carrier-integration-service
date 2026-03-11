@@ -1,0 +1,40 @@
+{
+  "RateResponse": {
+    "Response": {
+      "ResponseStatus": {
+        "Code": "1",
+        "Description": "Success"
+      }
+    },
+    "RatedShipment": [
+      {
+        "Service": {
+          "Code": "03"
+        },
+        "TotalCharges": {
+          "CurrencyCode": "USD",
+          "MonetaryValue": "14.25"
+        },
+        "BillingWeight": {
+          "UnitOfMeasurement": {
+            "Code": "LBS"
+          },
+          "Weight": "2"
+        },
+        "GuaranteedDelivery": {
+          "BusinessDaysInTransit": "3",
+          "DeliveryByTime": "16:30:00"
+        }
+      },
+      {
+        "Service": {
+          "Code": "02"
+        },
+        "TotalCharges": {
+          "CurrencyCode": "USD",
+          "MonetaryValue": "31.10"
+        }
+      }
+    ]
+  }
+}

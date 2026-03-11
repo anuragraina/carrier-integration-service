@@ -1,0 +1,10 @@
+{
+  "response": {
+    "errors": [
+      {
+        "code": "UPS500",
+        "message": "Internal server error"
+      }
+    ]
+  }
+}

@@ -1,6 +1,7 @@
 import { z } from 'zod';
 import { moneySchema } from './money.js';
 
+// Normalized quote shape returned to the caller regardless of carrier.
 export const rateQuoteSchema = z.object({
 	carrier: z.enum(['ups']),
 	serviceCode: z.string().min(1),
@@ -13,7 +14,7 @@ export const rateQuoteSchema = z.object({
 		})
 		.optional(),
 	estimatedDeliveryDate: z.string().optional(),
-	metadata: z.record(z.string()).default({}),
+	metadata: z.record(z.string(), z.string()).default({}),
 });
 
 export type RateQuote = z.infer<typeof rateQuoteSchema>;

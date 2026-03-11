@@ -4,7 +4,10 @@
 	"private": true,
 	"type": "module",
 	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1"
+		"build": "tsc --noEmit",
+		"test": "vitest run",
+		"test:watch": "vitest",
+		"check": "npm run build && npm run test"
 	},
 	"author": "Anurag Raina",
 	"license": "ISC",

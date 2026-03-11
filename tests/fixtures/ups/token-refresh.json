@@ -1,0 +1,5 @@
+{
+  "token_type": "Bearer",
+  "access_token": "ups-access-token-refreshed",
+  "expires_in": 3600
+}

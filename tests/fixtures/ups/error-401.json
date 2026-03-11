@@ -1,0 +1,10 @@
+{
+  "response": {
+    "errors": [
+      {
+        "code": "AUTH001",
+        "message": "Invalid access token"
+      }
+    ]
+  }
+}
